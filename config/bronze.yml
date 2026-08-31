@@ -1,1 +1,3 @@
 base_url: https://divvy-tripdata.s3.amazonaws.com
+start_year: 2022
+start_month: 1

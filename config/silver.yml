@@ -1,0 +1,8 @@
+process:
+  - filter:
+      remove_invalid_duration: "ended_at > started_at"
+  - deduplicate:
+      subset: ["ride_id"]
+path:
+  bronze_path: gs://{bucket_name}/bronze
+  silver_path: gs://{bucket_name}/silver

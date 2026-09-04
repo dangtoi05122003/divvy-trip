@@ -3,3 +3,6 @@ docker
 docker-compose.yaml
 __pycache__
 *.json
+notebook
+profiles.yml
+logs

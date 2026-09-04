@@ -1,0 +1,12 @@
+version: 2
+sources:
+  - name: divvy_trip
+    tables:
+      - name: trips
+        external:
+          location: "gs://divvy-de/silver/*"
+          partitions:
+            - name: year
+              data_type: int64
+          options:
+            format: 'PARQUET'

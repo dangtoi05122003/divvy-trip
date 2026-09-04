@@ -2,7 +2,7 @@ from ingestion import upload_gcs, download_file, extract_csv
 from utils import load_setting, get_logger
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from datetime import datetime
-import yaml
+from utils.config_loader import load_yaml
 
 logger = get_logger(__name__)
 setting = load_setting()
@@ -18,8 +18,7 @@ def process_month(year, month, base_url, bucket_name):
     )
 def main():
     bucket_name = setting.bucket_name
-    with open(r"/opt/airflow/config/bronze.yml", "r") as f:
-        config = yaml.safe_load(f)
+    config = load_yaml("/opt/airflow/config/bronze.yml")
     start_year = config["start_year"]
     start_month = config["start_month"]
     now = datetime.now()
